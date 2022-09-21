@@ -18,7 +18,7 @@ import CoinImage from "./Coin.png";
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
-    color: "#c38a59",
+    color: "#DC9A5A",
     fontFamily: "Montserrat",
     fontWeight: "bold",
     cursor: "pointer",
@@ -54,8 +54,7 @@ function Header() {
             <Typography
               onClick={() => history.push(`/`)}
               variant="h5"
-              className={classes.title}
-            >
+              className={classes.title}>
               Crypto Tracker
             </Typography>
             {/* <Button color="inherit">Login</Button> */}
@@ -64,11 +63,17 @@ function Header() {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={currency}
-              style={{ width: 100, height: 40, marginLeft: 15 }}
-              onChange={(e) => setCurrency(e.target.value)}
-            >
+              style={{
+                width: 100,
+                height: 40,
+                marginLeft: 15,
+                border: "1px solid #D9A25F",
+                color: "#D9A25F",
+              }}
+              onChange={(e) => setCurrency(e.target.value)}>
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
+              <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
           </Toolbar>
         </Container>

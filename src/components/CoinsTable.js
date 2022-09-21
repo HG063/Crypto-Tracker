@@ -44,7 +44,7 @@ export default function CoinsTable() {
     },
     pagination: {
       "& .MuiPaginationItem-root": {
-        color: "gold",
+        color: "#D9A25F",
       },
     },
   });
@@ -64,8 +64,6 @@ export default function CoinsTable() {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
-    console.log(data);
-
     setCoins(data);
     setLoading(false);
   };
@@ -88,8 +86,7 @@ export default function CoinsTable() {
       <Container style={{ textAlign: "center" }}>
         <Typography
           variant="h4"
-          style={{ margin: 18, fontFamily: "Montserrat" }}
-        >
+          style={{ margin: 18, fontFamily: "Montserrat" }}>
           Cryptocurrency Prices by Market Cap
         </Typography>
         <TextField
@@ -100,10 +97,10 @@ export default function CoinsTable() {
         />
         <TableContainer component={Paper}>
           {loading ? (
-            <LinearProgress style={{ backgroundColor: "gold" }} />
+            <LinearProgress style={{ backgroundColor: "#DC9A5A" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+              <TableHead style={{ backgroundColor: "#D9A25F" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
@@ -113,8 +110,7 @@ export default function CoinsTable() {
                         fontFamily: "Montserrat",
                       }}
                       key={head}
-                      align={head === "Coin" ? "" : "right"}
-                    >
+                      align={head === "Coin" ? "" : "right"}>
                       {head}
                     </TableCell>
                   ))}
@@ -130,16 +126,14 @@ export default function CoinsTable() {
                       <TableRow
                         onClick={() => history.push(`/coins/${row.id}`)}
                         className={classes.row}
-                        key={row.name}
-                      >
+                        key={row.name}>
                         <TableCell
                           component="th"
                           scope="row"
                           style={{
                             display: "flex",
                             gap: 15,
-                          }}
-                        >
+                          }}>
                           <img
                             src={row?.image}
                             alt={row.name}
@@ -147,14 +141,15 @@ export default function CoinsTable() {
                             style={{ marginBottom: 10 }}
                           />
                           <div
-                            style={{ display: "flex", flexDirection: "column" }}
-                          >
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                            }}>
                             <span
                               style={{
                                 textTransform: "uppercase",
                                 fontSize: 22,
-                              }}
-                            >
+                              }}>
                               {row.symbol}
                             </span>
                             <span style={{ color: "darkgrey" }}>
@@ -171,8 +166,7 @@ export default function CoinsTable() {
                           style={{
                             color: profit > 0 ? "rgb(14, 203, 129)" : "red",
                             fontWeight: 500,
-                          }}
-                        >
+                          }}>
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>

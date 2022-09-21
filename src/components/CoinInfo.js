@@ -16,7 +16,7 @@ const CoinInfo = ({ coin }) => {
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
   const { currency } = CryptoState();
-  const [flag,setflag] = useState(false);
+  const [flag, setflag] = useState(false);
 
   const useStyles = makeStyles((theme) => ({
     container: {
@@ -44,8 +44,6 @@ const CoinInfo = ({ coin }) => {
     setHistoricData(data.prices);
   };
 
-  console.log(coin);
-
   useEffect(() => {
     fetchHistoricData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,9 +61,9 @@ const CoinInfo = ({ coin }) => {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={classes.container}>
-        {!historicData | flag===false ? (
+        {!historicData | (flag === false) ? (
           <CircularProgress
-            style={{ color: "gold" }}
+            style={{ color: "#DC9A5A" }}
             size={250}
             thickness={1}
           />
@@ -86,7 +84,7 @@ const CoinInfo = ({ coin }) => {
                   {
                     data: historicData.map((coin) => coin[1]),
                     label: `Price ( Past ${days} Days ) in ${currency}`,
-                    borderColor: "#EEBC1D",
+                    borderColor: "#D9A25F",
                   },
                 ],
               }}
@@ -104,16 +102,15 @@ const CoinInfo = ({ coin }) => {
                 marginTop: 20,
                 justifyContent: "space-around",
                 width: "100%",
-              }}
-            >
+              }}>
               {chartDays.map((day) => (
                 <SelectButton
                   key={day.value}
-                  onClick={() => {setDays(day.value);
+                  onClick={() => {
+                    setDays(day.value);
                     setflag(false);
                   }}
-                  selected={day.value === days}
-                >
+                  selected={day.value === days}>
                   {day.label}
                 </SelectButton>
               ))}

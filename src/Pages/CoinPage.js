@@ -78,7 +78,7 @@ const CoinPage = () => {
 
   const classes = useStyles();
 
-  if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
+  if (!coin) return <LinearProgress style={{ backgroundColor: "#DC9A5A" }} />;
 
   return (
     <div className={classes.container}>
@@ -105,8 +105,7 @@ const CoinPage = () => {
               variant="h5"
               style={{
                 fontFamily: "Montserrat",
-              }}
-            >
+              }}>
               {numberWithCommas(coin?.market_cap_rank)}
             </Typography>
           </span>
@@ -120,8 +119,7 @@ const CoinPage = () => {
               variant="h5"
               style={{
                 fontFamily: "Montserrat",
-              }}
-            >
+              }}>
               {symbol}{" "}
               {numberWithCommas(
                 coin?.market_data.current_price[currency.toLowerCase()]
@@ -137,8 +135,7 @@ const CoinPage = () => {
               variant="h5"
               style={{
                 fontFamily: "Montserrat",
-              }}
-            >
+              }}>
               {symbol}{" "}
               {numberWithCommas(
                 coin?.market_data.market_cap[currency.toLowerCase()]
