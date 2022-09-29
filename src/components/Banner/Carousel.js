@@ -44,7 +44,9 @@ const Carousel = () => {
     let profit = coin?.price_change_percentage_24h >= 0;
 
     return (
-      <Link className={classes.carouselItem} to={`/coins/${coin.id}`}>
+      <Link
+        className={classes.carouselItem}
+        to={`/Crypto-Tracker/coins/${coin.id}`}>
         <img
           src={coin?.image}
           alt={coin.name}
@@ -58,8 +60,7 @@ const Carousel = () => {
             style={{
               color: profit > 0 ? "rgb(14, 203, 129)" : "red",
               fontWeight: 500,
-            }}
-          >
+            }}>
             {profit && "+"}
             {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>

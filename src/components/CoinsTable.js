@@ -124,7 +124,9 @@ export default function CoinsTable() {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow
-                        onClick={() => history.push(`/coins/${row.id}`)}
+                        onClick={() =>
+                          history.push(`/Crypto-Tracker/coins/${row.id}`)
+                        }
                         className={classes.row}
                         key={row.name}>
                         <TableCell

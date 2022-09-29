@@ -52,12 +52,11 @@ function Header() {
               style={{ marginRight: "5px" }}
             />
             <Typography
-              onClick={() => history.push(`/`)}
+              onClick={() => history.push(`/Crypto-Tracker/`)}
               variant="h5"
               className={classes.title}>
               Crypto Tracker
             </Typography>
-            {/* <Button color="inherit">Login</Button> */}
             <Select
               variant="outlined"
               labelId="demo-simple-select-label"
